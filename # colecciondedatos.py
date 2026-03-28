@@ -1,0 +1,61 @@
+# Diccionario para guardar contactos
+contactos = {}
+
+# Función para agregar un contacto
+def agregar_contacto():
+    nombre = input("Ingrese el nombre: ")
+    telefono = input("Ingrese el número: ")
+    contactos[nombre] = telefono
+    print("Contacto agregado correctamente.\n")
+
+# Función para mostrar todos los contactos
+def mostrar_contactos():
+    if len(contactos) == 0:
+        print("No hay contactos guardados.\n")
+    else:
+        print("Lista de contactos:")
+        for nombre, telefono in contactos.items():
+            print(f"{nombre}: {telefono}")
+        print()
+
+# Función para buscar un contacto
+def buscar_contacto():
+    nombre = input("Ingrese el nombre a buscar: ")
+    if nombre in contactos:
+        print(f"Teléfono de {nombre}: {contactos[nombre]}\n")
+    else:
+        print("Contacto no encontrado.\n")
+
+# Función para eliminar un contacto
+def eliminar_contacto():
+    nombre = input("Ingrese el nombre a eliminar: ")
+    if nombre in contactos:
+        del contactos[nombre]
+        print("Contacto eliminado.\n")
+    else:
+        print("Contacto no existe.\n")
+
+# Menú principal
+while True:
+    print("=== AGENDA DE CONTACTOS ===")
+    print("1. Agregar contacto")
+    print("2. Mostrar contactos")
+    print("3. Buscar contacto")
+    print("4. Eliminar contacto")
+    print("5. Salir")
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "1":
+        agregar_contacto()
+    elif opcion == "2":
+        mostrar_contactos()
+    elif opcion == "3":
+        buscar_contacto()
+    elif opcion == "4":
+        eliminar_contacto()
+    elif opcion == "5":
+        print("Programa finalizado.")
+        break
+    else:
+        print("Opción inválida.\n")
